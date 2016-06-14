@@ -1,0 +1,118 @@
+a {
+    color: #00B7FF;
+}
+div.x-view-full {
+    width: 100%;
+    height: 100%;
+}
+div.x-project-header {
+    display: inline-block;
+    position: absolute;
+    border: 1px solid #E4E4E4;
+    background: #FBFBFF;
+    width: 100%;
+    height: 60px;
+    left: 0px;
+    top: 0px;
+}
+div.x-sidemenu {
+    display: inline-block;
+    position: absolute;
+    border: 1px solid #FDFDFD;
+    background: #FDFDFD;
+    left: 0px;
+    top: 66px;
+    width: 160px;
+    height: auto;
+    font-family: Microsoft YaHei
+}
+div.x-contents {
+    display: inline-block;
+    position: absolute;
+    left: 170px;
+    top: 66px;
+    min-width: 200px;
+    min-height: 200px;
+}
+div.x-sidemenu-one {
+    margin-left: 0px;
+    text-align: center;
+    letter-spacing: 0px;
+}
+.nav-tabs>li>a {
+    letter-spacing: 0px;
+}
+div.x-sidemenu-two {
+    margin-left: 14px;
+    font-size: 14px;
+}
+p.sidemenu-one {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+.sidemenu-button {
+    font-size: 14px;
+    border: 0px;
+    margin-bottom: 6px;
+    background: #F2F2F2;
+}
+.sidemenu-button:hover {
+    background-color: #218fd5;
+}
+
+#x-project-title{
+  position: absolute;
+  display: inline-block;
+  /*top: 3px;*/
+  left: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  width: 200px;
+  color: #FFFFFF;
+}
+
+#x-login-user {
+    position: absolute;
+    display: inline-block;
+    top: 3px;
+    right: 10px;
+    width: 200px;
+    text-align: right;
+}
+div.admin-addUser {
+    position: relative;
+    top: 4px;
+    left: 10px;
+    width: auto;
+    height: auto;
+}
+.navbar-sm {
+    font-size: 10px;
+}
+.container-fluid-search {
+    padding-right: 15px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.container-fluid-table {
+    padding-right: 15px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.list-group-ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.panel-body-menu {
+    padding: 0;
+}
+.box-select{
+  width: 15%;
+}

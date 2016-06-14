@@ -1,0 +1,26 @@
+#bodylist>tr>td>input {
+    margin: 0 2px 0 2px;
+}
+#main-form>input {
+    margin: 0 2px 0 2px;
+}
+.nav-lists {
+    text-align: center;
+}
+.nav-lists>nav>span {
+    float: right;
+}
+.this-page {
+    margin: 25px 20px 20px 20px;
+    color: blue;
+}
+.total-page {
+    margin: 25px 20px 20px 20px;
+    color: blue;
+}
+input.input-page {
+    width: 30px
+}
+.total-page>input {
+    margin: 0 2px 0 2px;
+}

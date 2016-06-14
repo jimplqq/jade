@@ -1,0 +1,53 @@
+doctype html
+html(lang='zh-CN' ng-app='x-admin')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		// 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！
+		meta(name='description', content='')
+		meta(name='author', content='')
+		title oit-bate1.1
+		include ../includes/script
+	body(style='background-color:#F8FFD1')
+	.x-view-full(ng-controller='x-controller')
+		nav.navbar.navbar-inverse.navbar-fixed-top
+			.container-fluid
+				.navbar-header
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='true', aria-controls='navbar')
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='#') OIT bate1.1
+				#navbar.navbar-collapse.collapse.in(aria-expanded='true')
+					ul.nav.navbar-nav.navbar-right
+						li
+							a(href='#') Dashboard
+						li
+							a(href='#') Settings
+						li
+							a(href='#') Profile
+						li
+							a(href='#') Help
+					form.navbar-form.navbar-right
+						input.form-control(type='text', placeholder='Search...')
+
+		#nav.x-sidemenu.closed(role='navigation', aria-hidden='false', style='transition: max-height 400ms; position: relative;')
+			.x-sidemenu-one(ng-repeat='menu in menus', ng-show='menu.enabled')
+				#accordion.panel-group(style='margin-bottom: 0px;' role="tablist" aria-multiselectable="true")
+					.panel.panel-default
+						.panel-heading(role="tab" id="headingOne")
+							h4.panel-title
+								a(style='display:block;padding:5px 22px;text-decoration:none;' role="button" data-toggle="collapse" data-parent="#accordion" href="#{{menu.id}}" aria-expanded="true" aria-controls="{{menu.id}}") {{menu.text}}
+				.panel-collapse.collapse.in(id='{{menu.id}}' role="tabpanel" aria-labelledby="headingOne")
+					.panel-body
+						ul.nav.nav-tabs.nav-stacked(ng-repeat='subMenu in menu.subMenus', ng-show='subMenu.enabled') 
+							li(ng-click='setContent(subMenu.action)')
+								a(role="button") {{subMenu.text}}
+		.x-contents
+			div(ng-include='content')
+  
+
+script.
+	var navigation = responsiveNav("#nav", {customToggle: "#toggle"});

@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+    head
+        title
+        include ../includes/script  
+    body
+    #dragEle(style='border:1px solid red;width:100px;height:100px;text-align:center;line-height:100px;',draggable='true')
+    #dropEle(style='width:330px;min-height:202px;border:1px solid #444;margin-top:20px;overflow-y:scroll;')
+
+
+
+
+    div(ng-app='myApp', ng-controller='myCtrl')
+        select(id='selectName' ng-model='selectedName', ng-options='x for x in names')
+        h1 {{carname}}
+        script.
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope) {
+            $scope.names = ["Google", "baidu", "bing"];
+            $scope.carname = 'Volvo'
+            $('#selectName').change(function(){
+                $('#name').val($(this).val().split(':')[1])
+                })
+            });
+        div(ng-app='' ng-init='firstName="John"')
+            p 在输入框中输入
+            p 姓名: 
+                input(id='name' type='text' ng-model='firstName')
+            p 您的输入为:{{firstName}}

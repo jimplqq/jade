@@ -1,0 +1,38 @@
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		title oit-bate1.0
+		fontbase(family='Microsoft YaHei')
+		include ../includes/script
+	body(style='background-color:#F8FFD1')
+		.x-view-full(ng-app='x-admin',ng-controller='x-controller')
+			.navbar.navbar-inverse.navbar-fixed-top
+				.navbar-header
+					button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+					a#x-project-title.navbar-brand(href='#') oit-bate1.0
+				#navbar.navbar-collapse.collapse.x-login-user(aria-expanded='false', style='height: 0px;')
+					ul.nav.navbar-nav.navbar-right(style='margin-right: 15px')
+						li
+							a(href='#') {{currentUser}}
+						li
+							a(href='#') 退出
+
+			#nav.x-sidemenu.closed(role='navigation', aria-hidden='false', style='transition: max-height 400ms; position: relative;')
+				.x-sidemenu-one(ng-repeat='menu in menus', ng-show='menu.enabled')
+					#accordion.panel-group(style='margin-bottom: 0px;' role="tablist" aria-multiselectable="true")
+						.panel.panel-default
+							.panel-heading(role="tab" id="headingOne")
+								h4.panel-title
+									a(style='display:block;padding:5px 15px;text-decoration:none;' role="button" data-toggle="collapse" data-parent="#accordion" href="#{{menu.id}}" aria-expanded="true" aria-controls="{{menu.id}}") {{menu.text}}
+					.panel-collapse.collapse.in(id='{{menu.id}}' role="tabpanel" aria-labelledby="headingOne")
+						.panel-body-menu
+							ul.list-group-ul
+								li.list-group-item(ng-repeat='subMenu in menu.subMenus', ng-show='subMenu.enabled') 
+									span(ng-click='setContent(subMenu.action)')
+										a(role="button",style='display:block;padding:6px 15px;text-decoration:none;') {{subMenu.text}}
+										
+			.x-contents.col-sm-10.main
+				.ng-scope
+					button.alert.alert-danger.alert-dismissable(ng-repeat='alert in alerts', type='{{alert.type}}', ng-click='closeAlert($index)') {{alert.msg}}
+				div(ng-include='content')

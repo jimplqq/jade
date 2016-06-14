@@ -1,0 +1,27 @@
+.main-table(ng-controller='x-msg-controller')
+    h3 #{title}
+        .messageBox.box-select
+            select#newMsgSelect.form-control
+                option(value='0') 选择分类
+                option(value='spanish') 西语
+                option(value='life') 文化生活
+                option(value='travel') 旅行
+        .messageBox 
+            input#newMsgTitle.form-control(type='text' placeholder='标题' name='title') 
+        .messageBox
+            form
+                #summernote
+                .container-fluid
+                    .message-submit
+                        input.btn.btn-lg.btn-primary(type='button' value='保存' ng-click='save()')
+                        span(style='color:green' ng-model="msg"){{msg}}
+
+
+script.
+    $('#summernote').summernote({
+    //	airMode: true,不会有框体结构
+        height:300,
+        minHeight:null,
+        maxHeight:null,
+        focus:true
+    })

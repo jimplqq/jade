@@ -1,0 +1,48 @@
+.main-table(ng-controller='x-spanish-controller')
+	h3 #{title}
+	.container-fluid-search
+		.row-fluid
+			.span12
+				form#main-form.form-search(action='/spanish/search' method='get')
+					input.input-medium.search-query(type='text')
+					input.btn.btn-sm.btn-primary(type='submit' value='查找')
+
+		//- .container-fluid-search
+		//- 	.row-fluid
+		//- 		.span12
+		//- input.btn.btn-xs.btn-success(type='button' value='新建' ng-click='addNew()')
+	.container-fluid-table
+		.row-fluid
+			.span12
+				table.table.table-hover.table-striped.table-bordered(style='width:100%;background-color: white;')
+					thead
+						tr
+							th.text-center(style="width: 10%" hidden) ID
+							th.text-center(style="width: 50%") 标题
+							th.text-center(style="width: 15%") 发布
+							th.text-center(style="width: 15%") 创建时间
+							th.text-center(style="width: 20%") 操作
+
+					tbody#bodylist
+						each list in lists
+							tr.text-center
+								td(hidden) #{list._id}
+								td #{list.title}
+								td #{moment(list.isPush).format('YYYY-MM-DD hh:mm:ss')}
+								td #{moment(list.time).format('YYYY-MM-DD hh:mm:ss')}
+								td 
+									input.btn.btn-xs.btn-primary(type='button' value='编辑') 
+									input.btn.btn-xs.btn-danger(type='button' ng-click="del('#{list._id}','#{list.tab}','#{list.title}')" value='删除') 
+									input.btn.btn-xs.btn-warning(type='button' ng-click="push('#{list.tab}','#{list.title}')" value='发布')
+				.nav-lists 
+					nav
+						span.total-page 共 #{num.pages} 页
+						span
+							ul.pager
+								li
+									a(href='#') 前一页
+								li
+									a(href='#') 后一页
+						span.this-page 当前页: 
+							input.input-page(type='text' value='#{num.pageNum}') 
+							input.btn.btn-xs.btn-primary(type='button' value='跳转')
